@@ -1,0 +1,66 @@
+/* aside  */
+
+
+.aside * {
+    margin: 0;
+    padding: 0;
+}
+
+.aside > div {
+
+    background: #939d94;
+    color: white;
+    border: 1px solid #31b843;
+    border-radius: 0.3em;
+    padding: 0.3em 0.5em;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    width: 90%;
+    text-align: center;
+
+}
+
+.title {
+    font-size: 1.5em;
+    border-bottom: none;
+}
+
+.aside .aside-content {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+.aside .aside-theme {
+    
+    margin: 1rem;
+    padding: 0.5rem;
+}
+
+.aside h3 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.3em 0.5em;
+    border-radius: 0.3em;
+    font-size: 1em;
+    margin-top: 1em;
+    text-align: center;
+    border: dashed 1px #2a302e;
+}
+
+.aside-theme + .aside-theme {
+    border-top: dashed 1px #3cb894;
+}
+
+.aside-theme p {
+    text-align: right;
+}
+
+.aside-theme a {
+    text-decoration: none;
+    color: inherit;
+}
