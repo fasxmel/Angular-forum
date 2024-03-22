@@ -1,0 +1,51 @@
+/* theme list item */
+
+:root {
+    --move-header: 0;
+    --box-header-ht: 3rem;
+    --bg-color: #99d8d0;
+    --content-bg-color: #eef0e6;
+    --font-color: #37444c; 
+    --content-header: #b7efcd;
+  }
+  
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: var(--bg-color);
+    color: var(--font-color);
+    font-family: 'regular', cursive;
+    font-size: 30px;
+  }
+  
+  .container {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    min-height: 100vh;
+    padding: 1rem;
+    background-color: var(--bg-color);
+    margin-top: var(--move-header);
+    
+  }
+  
+  .box {
+    position: relative;
+    width: 100%;
+    margin-bottom: 1rem;
+  }
+  
+  .content {
+    padding: 2rem 1.5rem;
+    background-color: var(--content-bg-color);
+    border-top: 0; 
+    border-radius: 0 0 5px 5px;
+  }
+  
+  @media only screen and (max-width: 768px) {
+    * {
+      font-size: 16px;
+    }
+  }
+  
