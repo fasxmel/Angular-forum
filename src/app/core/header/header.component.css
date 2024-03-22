@@ -1,63 +1,117 @@
-/* header  */
-
-header {
-    background: rgb(210, 219, 45);
-    background: linear-gradient(0deg, rgb(191, 216, 101) 0%, rgb(161, 205, 67) 35%, rgb(117, 206, 44) 100%);
+:root {
+  --primColor: #dcdcdc;
+  --secoColor: #555555;
+  --cornerRad: 4px;
 }
-
-header ul {
-    padding: 0;
-    display: flex;
-    align-items: center;
-    width: 75%;
-    margin: auto;
+body {
+  background-color: var(--primColor);
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 20px;
 }
-
-header ul span {
-    color: white;
-    padding: 0.5em;
+details {
+  margin: 40px;
 }
-
-.mini-navbar ul {
-    border: 1px solid #601751;
-    border-radius: 0.3em;
-    padding-left: 0;
-    width: 100%;
+summary {
+  writing-mode: vertical-lr;
+  text-align: center;
+  padding: 12px 10px;
+  width: 23px;
+  height: 17px;
+  background-color: var(--primColor);
+  border: 2px solid var(--secoColor);
+  border-radius: var(--cornerRad);
+  color: var(--secoColor);
+  cursor: pointer;
+  user-select: none;
+  outline: none;
+  transition: transform 200ms ease-in-out 0s;
 }
-
-header li {
-    list-style: none;
-    margin: .35em;
-    padding: 0 .95em;
+summary::before,
+summary::after {
+  position: static;
+  top: 0;
+  left: 0;
 }
-
-header a {
-    text-decoration: none;
-    color: white;
-    cursor: pointer;
+summary::before {
+  content: "";
 }
-
-nav {
-    border-top: 1px solid #00acf4;
+summary::after {
+  content: "III";
+  letter-spacing: -1px;
 }
-
-.logo {
-    font-size: 1.3em;
-    color: white;
-    padding-bottom: 0;
+summary:hover {
+  transform: scale(1.1);
 }
-
-.logo-wrap {
-    letter-spacing: .5em;
-    margin: 0.5em 0;
+summary::marker {
+  font-size: 0;
 }
-
-.mini-navbar-wrap {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    width: 75%;
-    margin: auto;
+summary::-webkit-details-marker {
+  display: none;
 }
-
+details[open] .menu {
+  animation-name: menuAnim;
+}
+details[open] summary::before {
+  content: "X";
+}
+details[open] summary::after {
+  content: "";
+}
+.menu {
+  height: 0;
+  width: fit-content;
+  border-radius: var(--cornerRad);
+  background-color: var(--primColor);
+  box-shadow: 0 4px 12px 0 rgba(0, 0, 0, 0.2);
+  margin-top: 8px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow: hidden;
+  animation: closeMenu 300ms ease-in-out forwards;
+}
+.menu a {
+  padding: 12px 24px;
+  margin: 0 16px;
+  color: var(--secoColor);
+  border-bottom: 2px solid rgba(0, 0, 0, 0.1);
+  text-decoration: none;
+  text-align: center;
+  transition: filter 200ms linear 0s;
+}
+.menu a:nth-of-type(1) {
+  padding-top: 24px;
+}
+.menu a:nth-last-of-type(1) {
+  border-bottom: none;
+}
+.menu a:hover {
+  filter: brightness(200%);
+}
+details::before {
+  content: "← Click This Button";
+  color: var(--secoColor);
+  position: absolute;
+  margin-left: 80px;
+  padding: 10px 10px;
+  opacity: 0.4;
+}
+details[open]::before {
+  animation: fadeMe 300ms linear forwards;
+}
+@keyframes menuAnim {
+  0% {
+    height: 0;
+  }
+  100% {
+    height: 312px;
+  }
+}
+@keyframes fadeMe {
+  0% {
+    opacity: 0.4;
+  }
+  100% {
+    opacity: 0;
+  }
+}

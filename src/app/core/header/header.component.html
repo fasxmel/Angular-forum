@@ -1,31 +1,15 @@
-<header>
-    <div class="mini-navbar-wrap">
-        <div class="logo-wrap">
-            <p class="logo"><span class="logo">My Blog</span></p>
-        </div>
-        <div *ngIf="!isLoggedIn" class="mini-navbar">
-            <ul>
-                <li>
-                    <a math-button color="primary" href="#">Login</a> 
-                </li>
-                <li>
-                    <a mat-button color="primary" href="#">Register</a>
-                </li>
-            </ul>
-        </div>
-    </div>
-    <nav>
-        <ul>
-            <li>
-                <a href="#">Home</a>
-            </li>
-            <li>
-                <a href="#">Themes</a>
-            </li>
-            <li>
-                <a href="#">New Theme</a>
-            </li>
-        </ul>
-    </nav>
 
-</header>
+<div class="header">
+    <h1>My blog</h1>
+</div>
+<details> 
+    <summary></summary> 
+    <nav class="menu">
+      <a routerLink="#link">Home</a>
+      <a routerLink="#link">Work</a>
+      <a href="#link">Links</a>
+      <a href="#link">Contact</a>
+      <a href="#link">About</a>
+    </nav>
+</details>
+  

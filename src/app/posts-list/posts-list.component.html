@@ -1,4 +1,35 @@
-<aside>
+<div class="container">
+    <div class="box">
+      <div class="header">
+       <h1>Current Posts</h1>
+      </div>
+      <div *ngFor="let post of posts" class="content">
+            <a mat-button="#">
+                <h3>{{post.themeId.themeName}}</h3>
+                <p>{{post.userId.username}}</p>
+                <p><span>{{post.created_at}}</span></p>
+            </a>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <aside>
     <div class="aside">
         <h2 class="title">
             Current Posts
@@ -14,4 +45,4 @@
             
         </div>
     </div>
-</aside>
+</aside> -->
