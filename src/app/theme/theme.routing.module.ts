@@ -6,9 +6,13 @@ import { MainComponent } from './main/main.component';
 
 
 const routes: Routes = [
-      { path: 'theme', component: MainComponent},
-      { path: 'add', component: AddThemeComponent },
-      { path: 'current', component: CurrentThemeComponent },
+      { path: 'themes', children:[
+           
+           { path: '', pathMatch: 'full', component: MainComponent },
+           { path: ':themeId', component: CurrentThemeComponent },
+      ]},
+
+      { path: 'add-theme', component: AddThemeComponent },
 
 ]
 
