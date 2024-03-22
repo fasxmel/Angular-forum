@@ -13,6 +13,7 @@ const routes: Routes = [
       ]},
 
       { path: 'add-theme', component: AddThemeComponent },
+      { path: 'current-theme', component: CurrentThemeComponent },
 
 ]
 
