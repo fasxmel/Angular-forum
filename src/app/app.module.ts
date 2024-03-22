@@ -10,13 +10,16 @@ import { PostsListComponent } from './posts-list/posts-list.component';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatButtonModule } from '@angular/material/button';
+import { HomeComponent } from './home/home.component';
+import { UserModule } from './user/user.module';
 
 @NgModule({
   declarations: [
     AppComponent,
     MainComponent,
     ThemesListComponent,
-    PostsListComponent
+    PostsListComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
@@ -24,7 +27,8 @@ import { MatButtonModule } from '@angular/material/button';
     CoreModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    MatButtonModule
+    MatButtonModule,
+    UserModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
