@@ -21,13 +21,13 @@ import { ErrorComponent } from './error/error.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
     CoreModule,
     HttpClientModule,
     BrowserAnimationsModule,
     MatButtonModule,
     UserModule,
-    ThemeModule
+    ThemeModule,
+    AppRoutingModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

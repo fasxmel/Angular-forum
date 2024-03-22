@@ -6,9 +6,7 @@ const routes: Routes = [
 
   { path: '', pathMatch: 'full', component: HomeComponent},
   { path: 'home', component: HomeComponent},
-  {path: '**', component: ErrorComponent}
-  
-  
+  { path: '**', component: ErrorComponent }
 ];
 
 @NgModule({
