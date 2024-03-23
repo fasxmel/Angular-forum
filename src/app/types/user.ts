@@ -13,3 +13,9 @@ export interface User {
   updatedAt: string;
   __v: number;
 }
+
+export interface UserData {
+      username: string;
+      email: string;
+      password: string;
+}

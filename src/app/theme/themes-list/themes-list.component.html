@@ -11,11 +11,13 @@
                 <h2>{{theme.themeName}}</h2>
               </a>
                 <div class="subscribers">
+                    
                     <p>Subscribers: <span>{{theme.subscribers.length || 0}}</span></p>
                 </div>
                 <div class="nick-name">
                     <p>Username: <span>{{theme.userId.username}}</span></p>
                     <p>Date: <time>{{theme.created_at}}</time></p>
+                    <button *ngIf="isLoggedIn" class="subscribe">Subscribe</button> 
                 </div>
             </div>
           </div>

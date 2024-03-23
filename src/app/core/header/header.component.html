@@ -3,8 +3,9 @@
     <div class="logo-wrap">
       <p class="logo"><span class="logo">My Blog</span></p>
    </div>
-   <div *ngIf="!isLoggedIn" class="mini-navbar">
-    <div class="nav">
+
+   <div class="mini-navbar">
+    <div *ngIf="!isLoggedIn" class="nav">
       <ul>
         <li>
           <a routerLink="/login">Login</a>
@@ -12,15 +13,25 @@
         <li>
           <a routerLink="/register">Register</a>
         </li>
+      </ul>
+    </div>
+   </div>
+   <div  class="mini-navbar">
+    <div *ngIf="isLoggedIn" class="nav">
+      <ul>
         <li>
-          <a routerLink="/profil">Profil</a>
+          <a routerLink="/profil">{{userName}} Profil</a>
+        </li>
+        <li>
+          <a (click)="logout()" routerLink="/logout">Logout</a>
         </li>
       </ul>
     </div>
    </div>
   </div>
 
-<div class="menu">
+<div class="mini-navbar">
+  <div *ngIf="!isLoggedIn" class="nav">
 <ul>
   <li>
     <a routerLink="/">Home</a>
@@ -28,13 +39,24 @@
   <li>
     <a routerLink="/themes">Themes</a>
   </li>
-  <li>
-    <a routerLink="/add-theme">Add Theme</a>
-  </li>
-  <li>
-    <a routerLink="/current-theme">Current Theme</a>
-  </li>
 </ul>
+  </div>
+  <div *ngIf="isLoggedIn" class="nav">
+    <ul>
+      <li>
+        <a routerLink="/">Home</a>
+      </li>
+      <li>
+        <a routerLink="/themes">Themes</a>
+      </li>
+      <li>
+        <a routerLink="/add-theme">Add Theme</a>
+      </li>
+      <li>
+        <a routerLink="/current-theme">Current Theme</a>
+      </li>
+    </ul>
+  </div>
 </div> 
 </header>
       
