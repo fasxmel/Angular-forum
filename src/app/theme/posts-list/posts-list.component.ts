@@ -14,7 +14,7 @@ posts: Post[] = [];
 
   ngOnInit(): void {
     this.api.getPosts().subscribe((posts) => { 
-    console.log(posts)
+    
     this.posts = posts;
   });
     
