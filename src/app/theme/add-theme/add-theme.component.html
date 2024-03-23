@@ -1,21 +1,25 @@
-<div class="container">
-    <div class="card">
-      <div class="card__header">
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTIzlUdtwKcWqryMklZhA0uxd0hQTuikDgDZQ&s" alt="card__image" class="card__image" width="600">
-      </div>
-      <div class="card__body">
-        <span class="tag tag-blue">Angular</span>
-        <h4>What's new in 2022 Angular17</h4>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi perferendis molestiae non nemo doloribus. Doloremque, nihil! At ea atque quidem!</p>
-      </div>
-      <div class="card__footer">
-        <div class="user">
-          <img src="https://i.pravatar.cc/40?img=1" alt="user__image" class="user__image">
-          <div class="user__info">
-            <h5>John Doe</h5>
-            <small>2h ago</small>
-          </div>
+<section  class="articles">
+  <h1>Angular</h1>
+  <article>
+    <div class="article-wrapper">
+      <div class="article-body">
+        <div class="textArea">
+        <textarea name="postText" id="postText" placeholder="What's on your mind?" cols="75" rows="10"></textarea>
+        <p class="error"> The post can't be empty</p>
+        <p class="error"> The post must be at least 10 characters</p>
         </div>
+        <div class="buttuns">
+           <button class="post">Post</button>
+           <button class="cancel">Cancel</button>
+        </div>
+        <a routerLink="/:themeId" class="read-more">
+          <h2>Jon down</h2>
+        </a>  
+          <div class="nick-name">
+              <p>Likes: <span>5</span></p><p>Date: 
+                <time>2345678</time></p>  
+          </div>
       </div>
     </div>
-  </div>
+  </article>
+</section>
