@@ -14,13 +14,7 @@ export class CurrentThemeComponent implements OnInit {
   constructor(private api: ApiService, private activeRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
-    // this.activeRoute.params.subscribe((params) => {
-    //   const id = params['themeId'];
-    //   this.api.getOneTheme(id).subscribe((theme) => {
-    //     this.theme = theme;
-    //     console.log(this.theme);
-    //   })
-    // })
+    
     
   }
 }
