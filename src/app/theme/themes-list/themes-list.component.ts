@@ -24,6 +24,7 @@ export class ThemesListComponent implements OnInit {
     this.api.getThemes().subscribe((themes) => {
       this.themes = themes;
       
+      
       this.isLoding = false;
   });
   
@@ -38,6 +39,8 @@ export class ThemesListComponent implements OnInit {
     
   return !!isSubUser;
   }
+
+  
 
 }
 

@@ -3,7 +3,7 @@ import { Theme } from "./theme";
 
 export interface User {
   themes: Theme;
-  posts: Post;
+  posts: Post[];
   _id: string;
   tel: string;
   email: string;

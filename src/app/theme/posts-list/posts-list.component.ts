@@ -16,6 +16,7 @@ posts: Post[] = [];
     this.api.getPosts().subscribe((posts) => { 
     
     this.posts = posts;
+   
   });
     
 }

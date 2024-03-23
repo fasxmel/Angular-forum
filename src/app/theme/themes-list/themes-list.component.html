@@ -15,7 +15,7 @@
                     <p>Subscribers: <span>{{theme.subscribers.length || 0}}</span></p>
                 </div>
                 <div class="nick-name">
-                    <p>Username: <span>{{theme.userId.username}}</span></p>
+                    <p>Username: <span>{{theme.userId}}</span></p>
                     <p>Date: <time>{{theme.created_at}}</time></p>
                     <button *ngIf=" isLoggedIn && !isSubscribed(theme)" class="subscribe">Subscribe</button> 
                     <button *ngIf="!isLoggedIn && isSubscribed(theme)" class="unsubscribe">Subscribe</button> 

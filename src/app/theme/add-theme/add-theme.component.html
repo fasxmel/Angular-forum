@@ -1,15 +1,18 @@
 <section  class="articles">
   <h1>Angular</h1>
   <article>
+    <form>
     <div class="article-wrapper">
       <div class="article-body">
         <div class="textArea">
-        <textarea name="postText" id="postText" placeholder="What's on your mind?" cols="75" rows="10"></textarea>
+        <label for="themeName"></label>
+        <input type="text" name="themeName" id="themeName" placeholder="Theme Name" #inputThemeName>
+        <textarea name="postText" #textAreaText id="postText" placeholder="What's on your mind?" cols="75" rows="10"></textarea>
         <p class="error"> The post can't be empty</p>
         <p class="error"> The post must be at least 10 characters</p>
         </div>
         <div class="buttuns">
-           <button class="post">Post</button>
+           <button  class="post" (click)="addPost($event, inputThemeName.value, textAreaText.value)">Post</button>
            <button class="cancel">Cancel</button>
         </div>
         <a routerLink="/:themeId" class="read-more">
@@ -21,5 +24,6 @@
           </div>
       </div>
     </div>
+  </form>
   </article>
 </section>

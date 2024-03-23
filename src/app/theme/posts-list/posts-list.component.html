@@ -8,8 +8,8 @@
           <div class="article-wrapper">
             <div *ngFor="let post of posts" class="article-body">
                 <h3>{{post.themeId.themeName}}</h3>
-                <a routerLink="/:postId" class="read-more">
-                    <p>{{post.userId.username}}</p>
+                <a routerLink="/postId" class="read-more">
+                    <p>{{post.userId}}</p>
                     <p><span>{{post.created_at}}</span></p>
                 </a>
                </div>
