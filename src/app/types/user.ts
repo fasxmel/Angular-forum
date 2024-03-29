@@ -1,23 +1,8 @@
-import { Post } from "./post";
-import { Theme } from "./theme";
-
-export interface User {
-  themes: Theme;
-  posts: Post[];
-  _id: string;
-  tel: string;
-  email: string;
-  username: string;
-  password: string;
-  created_at: string;
-  updatedAt: string;
-  __v: number;
-}
-
 export interface UserData {
-      id: string;
-      username: string;
-      email: string;
-      password: string;
-      
+  username:string; 
+  email:string; 
+  password:string;
+  rePassword:string
 }
+
+

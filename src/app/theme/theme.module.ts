@@ -5,7 +5,8 @@ import { CurrentThemeComponent } from './current-theme/current-theme.component';
 import { ThemeRoutingModule } from './theme.routing.module';
 import { ThemesListComponent } from './themes-list/themes-list.component';
 import { PostsListComponent } from './posts-list/posts-list.component';
-import { MainComponent } from './main/main.component';
+import { AddPostComponent } from './add-post/add-post.component';
+import { HomeComponent } from './home/home.component';
 
 
 
@@ -15,7 +16,8 @@ import { MainComponent } from './main/main.component';
     CurrentThemeComponent,
     ThemesListComponent,
     PostsListComponent,
-    MainComponent
+    HomeComponent,
+    AddPostComponent
   ],
   imports: [
     CommonModule, ThemeRoutingModule

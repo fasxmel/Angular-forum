@@ -1,8 +1,9 @@
-import { Component } from '@angular/core';
+import { Component} from '@angular/core';
 import { UserService } from '../user.service';
 import { Router } from '@angular/router';
-import { NgForm } from '@angular/forms';
 import { FormBuilder, Validators } from '@angular/forms';
+import { passwordMatchValidator } from 'src/app/validators/password-match.directive';
+import { UserData } from 'src/app/types/user';
 
 @Component({
   selector: 'app-register',
@@ -10,33 +11,39 @@ import { FormBuilder, Validators } from '@angular/forms';
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent {
-
-  form = this.fb.group(
-    {
-      email: ['', Validators.required],
-      password: ['', Validators.required],
-      rePassword: ['', Validators.required]
-    }
-  );
-     
-  get passGroup() {
-    return this.form.get('passGroup');
+  registerForm = this.fb.group({
+    username: ['', Validators.required],
+    email: ['', Validators.required, Validators.email],
+    password: ['', Validators.required],
+    rePassword: ['', Validators.required] 
+  }, {
+    validators: passwordMatchValidator
+  });
+constructor(private fb: FormBuilder, private userService: UserService, private router: Router) { }
+  
+  get username() {
+    return this.registerForm.get('username');
+  }
+  get email() {
+    return this.registerForm.get('email');
+  }
+  get password() {
+    return this.registerForm.get('password');
+  }
+  get rePassword() {
+    return this.registerForm.get('rePassword');
   }
 
-   constructor(private userService: UserService, private router: Router, private fb: FormBuilder) { }
-  
-  register(): void {
-   
-    if (this.form.invalid) {
-      return;
-    }
-
-    const {email, password, rePassword} = this.form.value;
-     
-    this.userService.register(email!, password!, rePassword!).subscribe(() => {
-      this.router.navigate(['/themes']);
-    });
-   
+  register(){
+    const registerUserData = {...this.registerForm.value};
+    delete registerUserData.rePassword;
+    this.userService.register(registerUserData as UserData).subscribe((res) => {
+    alert('Registration successful');
+    this.router.navigate(['/']);
+      
+    }, (err) => {
+      alert(err);
+    })
   }
 
 }

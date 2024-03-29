@@ -1,7 +1,9 @@
-import { Component } from '@angular/core';
-import { UserService } from '../user.service';
+
+import { Component} from '@angular/core';
+import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { NgForm } from '@angular/forms';
+import { UserService } from '../user.service';
+
 
 @Component({
   selector: 'app-login',
@@ -9,18 +11,40 @@ import { NgForm } from '@angular/forms';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent {
-     constructor(private userService: UserService, private router: Router) { }
 
-     login(form: NgForm) {
+  loginForm = this.fb.group({
+    email: ['', [Validators.required, Validators.email]],
+    password: ['', Validators.required]
+  });
+  
+constructor(private fb: FormBuilder, private userService: UserService, private router: Router) { }
+
+get email() {
+  return this.loginForm.controls['email'];
+}
+get password() {
+  return this.loginForm.controls['password'];
+}
+
+      login() {
+          const {email, password} = this.loginForm.value;
+          console.log(this.loginForm.value);
+          
+          this.userService.login(email as string).subscribe((res) => {
+            if (res.length > 0 && res[0].password === password) {
+              localStorage.setItem('user', JSON.stringify(res));
+              alert('Login Successful');
+              this.router.navigate(['/']);
+            } else {
+              alert('Wrong email or password');
+              
+            }
+          }, (err) => {
+            alert(err);
+          })
      
-      if(form.invalid) {
-        return;
-      }
-       const {email, password} = form.value;
-       
-       this.userService.login(email, password).subscribe(() => {
-       this.router.navigate(['/themes']);
-       });
-       
-     }
+      } 
+
+      
+
 }

@@ -9,9 +9,8 @@ import { Theme } from 'src/app/types/theme';
   styleUrls: ['./current-theme.component.css']
 })
 export class CurrentThemeComponent implements OnInit {
-   theme = {} as Theme;
-
-  constructor(private api: ApiService, private activeRoute: ActivatedRoute) { }
+   
+  constructor() { }
 
   ngOnInit(): void {
     

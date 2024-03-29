@@ -1,31 +1,39 @@
 
-<div class="container">
-	<div class="screen">
-		<div class="screen__content">
-			<form class="login"#form="ngForm" (ngSubmit)="login(form)">
-				<div class="login__field">
-					<i class="login__icon fas fa-user"></i>
-					<input #inputEmail="ngModel" ngModel type="email" class="login__input" placeholder="Email">
-				</div>
-				<div class="login__field">
-					<i class="login__icon fas fa-lock"></i>
-					<input #inputPassword="ngModel" ngModel type="password" class="login__input" placeholder="Password">
-				</div>
-				<button class="button login__submit">
-					<span class="button__text">Login</span>
-					<i class="button__icon fas fa-chevron-right"></i>
-				</button>				
-			</form>
-			<div class="social-login">
-				<h3>Have an account?</h3>
-				<a routerLink="/register">Register</a>
-			</div>
-		</div>
-		<div class="screen__background">
-			<span class="screen__background__shape screen__background__shape4"></span>
-			<span class="screen__background__shape screen__background__shape3"></span>		
-			<span class="screen__background__shape screen__background__shape2"></span>
-			<span class="screen__background__shape screen__background__shape1"></span>
-		</div>		
+<div class="wrapper">
+	<div class="logo">
+		<img src="https://img.freepik.com/free-psd/3d-icon-social-media-app_23-2150049569.jpg?size=338&ext=jpg&ga=GA1.1.34264412.1710720000&semt=ais" alt="">
 	</div>
+	<div class="text-center mt-4 name">
+		Login
+	</div>
+	<form [formGroup]="loginForm" (ngSubmit)="login()" class="p-3 mt-3">
+		<div class="form-field d-flex align-items-center">
+			<span class="far fa-user"></span>
+			<input formArrayName="email" type="email" name="email" id="email" placeholder="Email">
+		</div>
+
+		<ng-container *ngIf="loginForm.get('email')?.touched">
+			<p class="error" *ngIf="loginForm.get('email')?.errors?.['required']">
+			  Email is required!
+			</p>
+			<p class="error" *ngIf="loginForm.get('email')?.errors?.['emailValidator']">
+			  Email is not valid!
+			</p>
+		</ng-container>
+		<div class="form-field d-flex align-items-center">
+			<span class="fas fa-key"></span>
+			<input formControlName="password" type="password" name="password" id="password" placeholder="Password">
+		</div>
+
+		<ng-container *ngIf="loginForm.get('password')?.touched">
+			<p class="error" *ngIf="loginForm.get('password')?.errors?.['required']">
+			  Password is required!
+			</p>
+		</ng-container>
+		
+		<button type="submit" class="btn mt-3" name="button" id="button">Login</button>
+	</form>
+	<div class="text-center fs-6">
+	 <a routerLink="/register">Don't have an account?</a>
+	</div>   
 </div>

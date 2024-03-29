@@ -1,58 +1,35 @@
-
-<!-- <div>
-    <p>Loading...</p>
-</div> -->
-    <section  class="articles">
-        <h1>Current Posts</h1>
-        <article>
-          <div class="article-wrapper">
-            <div *ngFor="let post of posts" class="article-body">
-                <h3>{{post.themeId.themeName}}</h3>
-                <a routerLink="/postId" class="read-more">
-                    <p>{{post.userId}}</p>
-                    <p><span>{{post.created_at}}</span></p>
-                </a>
-               </div>
-            </div>
-         
-        </article>
-    </section>
-    
-    
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!-- <aside>
-    <div class="aside">
-        <h2 class="title">
-            Current Posts
-        </h2>
-        <div>
-            <div *ngFor="let post of posts" class="aside-theme">
-                <a mat-button="#">
-                    <h3>{{post.themeId.themeName}}</h3>
-                    <p>{{post.userId.username}}</p>
-                    <p><span>{{post.created_at}}</span></p>
-                </a>
-            </div>
-            
-        </div>
-    </div>
-</aside> -->
+<div class="container">
+  <h1>Posts</h1>
+  <div class="row">
+      <div class="col-lg-4">
+          <div class="card card-margin">
+              <div class="card-header no-border">
+                  <h5 class="card-title">MOM</h5>
+              </div>
+              <div class="card-body pt-0">
+                  <div class="widget-49">
+                      <div class="widget-49-title-wrapper">
+                          <div class="widget-49-date-primary">
+                              <span class="widget-49-date-day">09</span>
+                              <span class="widget-49-date-month">apr</span>
+                          </div>
+                          <div class="widget-49-meeting-info">
+                              <span class="widget-49-pro-title">PRO-08235 DeskOpe. Website</span>
+                              <span class="widget-49-meeting-time">12:00 to 13.30 Hrs</span>
+                          </div>
+                      </div>
+                      <ol class="widget-49-meeting-points">
+                          <li class="widget-49-meeting-item"><span>Expand module is removed</span></li>
+                          <li class="widget-49-meeting-item"><span>Data migration is in scope</span></li>
+                          <li class="widget-49-meeting-item"><span>Session timeout increase to 30 minutes</span></li>
+                      </ol>
+                      <div class="widget-49-meeting-action">
+                          <a href="#" class="btn btn-sm btn-flash-border-primary">View All</a>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
+ 

@@ -7,34 +7,33 @@ import { Post } from './types/post';
   providedIn: 'root'
 })
 export class ApiService {
+  private baseUrl = environment.apiUrl;
 
   constructor(private http: HttpClient) { }
 
   getThemes() {
-    const { apiUrl } = environment;
- 
-  
-    return this.http.get<Theme[]>(`${apiUrl}/themes`);
+    return this.http.get<Theme[]>(`${this.baseUrl}/themes`);
    
   }
-
+  
   getOneTheme(id: string) {
-    const { apiUrl } = environment;
-    return this.http.get<Theme>(`${apiUrl}/themes/${id}`);
+    return this.http.get<Theme>(`${this.baseUrl}/themes/${id}`);
   }
 
   addTheme(themeName: string, postText: string) {
-    const { apiUrl } = environment;
-    return this.http.post<Theme>(`${apiUrl}/themes`, {themeName, postText});
+    return this.http.post<Theme>(`${this.baseUrl}/themes`, {themeName, postText});
   }
     
-
-  getPosts(limit?: number) {
-    const { apiUrl } = environment;
-
-    if (!limit) {
-      return this.http.get<Post[]>(`${apiUrl}/posts`);
-    }
-    return this.http.get<Post[]>(`${apiUrl}/posts?limit=${limit}`);
+  getPosts() {
+    return this.http.get<Post[]>(`${this.baseUrl}/posts`);
   }
+
+  addPost(themeId: string, postText: string) {
+    return this.http.post<Post>(`${this.baseUrl}/posts`, {themeId, postText});
+  }
+
+  getOnePost(id: string) {
+    return this.http.get<Post>(`${this.baseUrl}/posts/${id}`);
+  }
+
 }

@@ -12,9 +12,6 @@ export class AddThemeComponent implements OnInit {
     
   };
 
-  constructor(private api: ApiService) { }
-  addPost(e: Event, themeName: string, postText: string) {
-    e.preventDefault();
-    this.api.addTheme(themeName, postText)
-  }
+  constructor() { }
+  
 }

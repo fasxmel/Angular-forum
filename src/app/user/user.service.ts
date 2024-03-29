@@ -1,42 +1,33 @@
 import { Injectable } from '@angular/core';
 import { UserData } from '../types/user';
 import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { environment } from 'src/environments/environment.development';
+import { Router } from '@angular/router';
+
 
 @Injectable({
   providedIn: 'root'
 })
-export class UserService {
-  user: UserData | undefined;
-  userKey = '[user]';
+ export class UserService {
 
+  private baseUrl = environment.apiUrl;
 
-  get isLoged(): boolean {
-    return !!this.user;
-  }
+  constructor(private http: HttpClient, private router: Router) {}
 
-  
-
-  constructor(private http: HttpClient) {
-    try {
-    const lsUser = localStorage.getItem(this.userKey) || '';
-    this.user = JSON.parse(lsUser);  
-    } catch (error) {
-      this.user = undefined;
-      
-    }
-  }
-
-login(email: string, password: string) {
-  return this.http.post<UserData>('/api/login', {email, password});
+logout() {
+    localStorage.removeItem('user');
+    this.router.navigate(['login']);
 }
 
-register(email: string, password: string, repassword: string) {
-  return this.http.post<UserData>('/api/register', {email, password, repassword});
+register(userData: UserData) {
+  return this.http.post<UserData>(`${this.baseUrl}/users`, userData)
 }
 
-logout () {
-  this.user = undefined;
-  localStorage.removeItem(this.userKey);
+login(email: string): Observable<UserData[]> {
+  return this.http.get<UserData[]>(`${this.baseUrl}/users?email=${email}`)
 }
+
+
 
 }

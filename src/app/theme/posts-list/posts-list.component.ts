@@ -8,17 +8,15 @@ import { Post } from '../../types/post';
   styleUrls: ['./posts-list.component.css']
 })
 export class PostsListComponent implements OnInit {
-posts: Post[] = [];
-  constructor(private api: ApiService) {}
+
+  constructor() {}
 
 
   ngOnInit(): void {
-    this.api.getPosts().subscribe((posts) => { 
     
-    this.posts = posts;
    
-  });
+  }
     
-}
+
 
 }

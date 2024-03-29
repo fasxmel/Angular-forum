@@ -8,20 +8,12 @@
         <label for="themeName"></label>
         <input type="text" name="themeName" id="themeName" placeholder="Theme Name" #inputThemeName>
         <textarea name="postText" #textAreaText id="postText" placeholder="What's on your mind?" cols="75" rows="10"></textarea>
-        <p class="error"> The post can't be empty</p>
-        <p class="error"> The post must be at least 10 characters</p>
+       
         </div>
         <div class="buttuns">
-           <button  class="post" (click)="addPost($event, inputThemeName.value, textAreaText.value)">Post</button>
+           <button  class="post" >Post</button>
            <button class="cancel">Cancel</button>
         </div>
-        <a routerLink="/:themeId" class="read-more">
-          <h2>Jon down</h2>
-        </a>  
-          <div class="nick-name">
-              <p>Likes: <span>5</span></p><p>Date: 
-                <time>2345678</time></p>  
-          </div>
       </div>
     </div>
   </form>
