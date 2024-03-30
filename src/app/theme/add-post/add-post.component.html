@@ -1,21 +1,21 @@
 <section  class="articles">
-    <h1>Angular</h1>
-    <article>
-      <form>
-      <div class="article-wrapper">
-        <div class="article-body">
-          <div class="textArea">
-          <label for="themeName"></label>
-          <input type="text" name="themeName" id="themeName" placeholder="Post Name" #inputThemeName>
-          <textarea name="postText" #textAreaText id="postText" placeholder="Theme of the post" cols="75" rows="10"></textarea>
-         
-          </div>
-          <div class="buttuns">
-             <button  class="post">Post</button>
-             <button class="cancel">Cancel</button>
-          </div>
+  <h1>Add Post</h1>
+  <article>
+    <form [formGroup]="postForm" (ngSubmit)="addPost()">
+    <div class="article-wrapper">
+      <div class="article-body">
+        <div class="textArea">
+        <label for="themeName"></label>
+        <input type="text" formControlName="postName" name="postName"  id="themeName" placeholder="Post Name">
+        <textarea type="text" name="themeText" formControlName="postText"  id="themeText" placeholder="" cols="75" rows="10"></textarea>
+       
+        </div>
+        <div class="buttouns">
+           <button class="post">Post</button>
+           <button class="update">Update</button>
         </div>
       </div>
-    </form>
-    </article>
-  </section>
+    </div>
+  </form>
+  </article>
+</section>

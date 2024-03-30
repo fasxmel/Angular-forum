@@ -1,6 +1,8 @@
+import { Post } from './post';
+
 export interface Theme {
   id: string;
-  title: string;
-  date: string;
-  body: string;
+  themeName: string;
+  themeText: string;
+  postId: string;
 }

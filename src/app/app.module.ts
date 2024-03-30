@@ -10,8 +10,6 @@ import { ThemeModule } from './theme/theme.module';
 import { ErrorComponent } from './error/error.component';
 
 import { AppComponent } from './app.component';
-
-import { appInterceptorProviders } from './app.interceptor';
 import { LogoutComponent } from './logout/logout.component';
 
 
@@ -33,7 +31,7 @@ import { LogoutComponent } from './logout/logout.component';
     ThemeModule,
     AppRoutingModule,
   ],
-  providers: [appInterceptorProviders],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

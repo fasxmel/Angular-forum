@@ -12,39 +12,31 @@ import { UserService } from '../user.service';
 })
 export class LoginComponent {
 
-  loginForm = this.fb.group({
-    email: ['', [Validators.required, Validators.email]],
-    password: ['', Validators.required]
-  });
-  
+userData: any;
 constructor(private fb: FormBuilder, private userService: UserService, private router: Router) { }
 
-get email() {
-  return this.loginForm.controls['email'];
-}
-get password() {
-  return this.loginForm.controls['password'];
-}
+loginForm = this.fb.group({
+  email: this.fb.control('', Validators.required),
+  password: this.fb.control('', Validators.required)
+});
 
-      login() {
-          const {email, password} = this.loginForm.value;
-          console.log(this.loginForm.value);
-          
-          this.userService.login(email as string).subscribe((res) => {
-            if (res.length > 0 && res[0].password === password) {
-              localStorage.setItem('user', JSON.stringify(res));
-              alert('Login Successful');
-              this.router.navigate(['/']);
-            } else {
-              alert('Wrong email or password');
-              
-            }
-          }, (err) => {
-            alert(err);
-          })
-     
-      } 
+login() {
+  if (this.loginForm.valid) {
+       this.userService.getUserbyId(this.loginForm.value.email).subscribe((res) => {
+
+        this.userData = res;
+        console.log(this.userData);
+    })
+      
+    } else {
+    alert('Please enter valid data!');
+  }
+    
+}
+      
+    
+} 
 
       
 
-}
+

@@ -9,27 +9,27 @@
 	<form [formGroup]="loginForm" (ngSubmit)="login()" class="p-3 mt-3">
 		<div class="form-field d-flex align-items-center">
 			<span class="far fa-user"></span>
-			<input formArrayName="email" type="email" name="email" id="email" placeholder="Email">
+			<input formControlName="email" type="email" name="email" id="email" placeholder="Email">
 		</div>
 
-		<ng-container *ngIf="loginForm.get('email')?.touched">
+		<!-- <ng-container *ngIf="loginForm.get('email')?.touched">
 			<p class="error" *ngIf="loginForm.get('email')?.errors?.['required']">
 			  Email is required!
 			</p>
 			<p class="error" *ngIf="loginForm.get('email')?.errors?.['emailValidator']">
 			  Email is not valid!
 			</p>
-		</ng-container>
+		</ng-container> -->
 		<div class="form-field d-flex align-items-center">
 			<span class="fas fa-key"></span>
 			<input formControlName="password" type="password" name="password" id="password" placeholder="Password">
 		</div>
 
-		<ng-container *ngIf="loginForm.get('password')?.touched">
+		<!-- <ng-container *ngIf="loginForm.get('password')?.touched">
 			<p class="error" *ngIf="loginForm.get('password')?.errors?.['required']">
 			  Password is required!
 			</p>
-		</ng-container>
+		</ng-container> -->
 		
 		<button type="submit" class="btn mt-3" name="button" id="button">Login</button>
 	</form>

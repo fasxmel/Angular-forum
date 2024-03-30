@@ -1,18 +1,18 @@
 <section  class="articles">
-  <h1>Angular</h1>
+  <h1>Add Theme</h1>
   <article>
-    <form>
+    <form [formGroup]="themeForm" (ngSubmit)="addTheme()">
     <div class="article-wrapper">
       <div class="article-body">
         <div class="textArea">
         <label for="themeName"></label>
-        <input type="text" name="themeName" id="themeName" placeholder="Theme Name" #inputThemeName>
-        <textarea name="postText" #textAreaText id="postText" placeholder="What's on your mind?" cols="75" rows="10"></textarea>
+        <input type="text" formControlName="themeName" name="themeName"  id="themeName" placeholder="Theme Name">
+        <textarea  type="text" name="themeText" formControlName="themeText"  id="themeText" placeholder="What's on your mind?" cols="75" rows="10"></textarea>
        
         </div>
-        <div class="buttuns">
-           <button  class="post" >Post</button>
-           <button class="cancel">Cancel</button>
+        <div class="buttouns">
+           <button class="post">Post</button>
+           <button class="update">Update</button>
         </div>
       </div>
     </div>

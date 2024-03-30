@@ -6,9 +6,10 @@
 		Register
 	</div>
 	<form [formGroup]="registerForm" (ngSubmit)="register()"class="p-3 mt-3">
+
 		<div class="form-field d-flex align-items-center">
 			<span class="far fa-user"></span>
-			<input formControlName="username" type="text" name="username" id="username" placeholder="username">
+			<input formControlName="id" type="text" name="username" id="username" placeholder="username">
 		</div>
 
 		<ng-container *ngIf="registerForm.get('username')?.touched">

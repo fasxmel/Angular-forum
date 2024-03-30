@@ -7,7 +7,7 @@ import { ThemesListComponent } from './themes-list/themes-list.component';
 import { PostsListComponent } from './posts-list/posts-list.component';
 import { AddPostComponent } from './add-post/add-post.component';
 import { HomeComponent } from './home/home.component';
-
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -20,7 +20,10 @@ import { HomeComponent } from './home/home.component';
     AddPostComponent
   ],
   imports: [
-    CommonModule, ThemeRoutingModule
+    CommonModule, 
+    ThemeRoutingModule,
+    FormsModule,
+    ReactiveFormsModule
   ]
 })
 export class ThemeModule { }

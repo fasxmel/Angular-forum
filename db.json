@@ -1,25 +1,26 @@
 {
   "users": [
     {
-      "id": "3de0",
-      "username": "test ",
-      "email": "test@test.bg",
-      "password": "1234"
+      "id": "Peter",
+      "email": "peter@abv.bg",
+      "password": "1234",
+      "rePassword": "1234",
+      "role": "admin",
+      "isActive": true
     }
   ],
   "themes": [
     {
-      "id": "1",
-      "title": "test",
-      "date": "test",
-      "body": "test"
+      "id": "9818",
+      "themeName": "Garden",
+      "themeText": "There are many types of gardens, vast numbers of plants, and an unrelenting list of gardening terms that may be unfamiliar to the average person. With so much garden design info out there, how on earth does one begin to weed it all out? Well, for starters you can begin your search here. We provide gardening tips and information that is easy to understand. From various types of gardens to explanations about gardening terms and how tos, you are certain to find what you’re looking for. If not, let us know and we’ll be happy to add it."
     }
   ],
   "posts": [
     {
-      "id": "1",
-      "body": "test",
-      "themeId": "1"
+      "id": "1b57",
+      "postName": "Garden Post",
+      "postText": "Time is a funny thing. We never seem to have enough of it on the one hand, but on the other too much of it can be a bad thing. Time can develop the most beautiful gardens or it can wreak havoc on what was once a carefully planned landscape."
     }
   ]
 }

@@ -11,23 +11,21 @@ import { Router } from '@angular/router';
 })
  export class UserService {
 
-  private baseUrl = environment.apiUrl;
+private baseUrl = environment.apiUrlUser;
 
-  constructor(private http: HttpClient, private router: Router) {}
+constructor(private http: HttpClient, private router: Router) {}
 
-logout() {
-    localStorage.removeItem('user');
-    this.router.navigate(['login']);
+getAllUsers() {
+  return this.http.get(this.baseUrl)
 }
 
-register(userData: UserData) {
-  return this.http.post<UserData>(`${this.baseUrl}/users`, userData)
+getUserbyId(id: any) {
+  return this.http.get(this.baseUrl+'/'+id)
 }
 
-login(email: string): Observable<UserData[]> {
-  return this.http.get<UserData[]>(`${this.baseUrl}/users?email=${email}`)
+registerUser(data: any) {
+  return this.http.post(this.baseUrl, data)
 }
-
 
 
 }

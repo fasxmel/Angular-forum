@@ -1,13 +1,26 @@
 import { Component, OnInit } from '@angular/core';
-import { ApiService } from '../../api.service';
 import { Theme } from '../../types/theme';
-import { UserService } from 'src/app/user/user.service';
+import { ThemeService } from '../theme.service';
+import { FormBuilder } from '@angular/forms';
 @Component({
   selector: 'app-themes-list',
   templateUrl: './themes-list.component.html',
   styleUrls: ['./themes-list.component.css']
 })
-export class ThemesListComponent {
-  
+export class ThemesListComponent implements OnInit {
+  allThemes: Theme[] = [];
+  constructor(private fb: FormBuilder, private themeService: ThemeService) { }
+
+  ngOnInit(): void {
+    this.getThemes();
+  }
+
+  getThemes() {
+    this.themeService.getAllThemes().subscribe((res) => {
+      this.allThemes = res;
+      console.log(this.allThemes);
+    })
+  }
+
 }
 

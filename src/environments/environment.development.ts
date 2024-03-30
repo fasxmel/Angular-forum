@@ -1,3 +1,5 @@
 export const environment = {
-    apiUrl: 'http://localhost:3000'
+    apiUrlTheme: 'http://localhost:3000/themes',
+    apiUrlUser: 'http://localhost:3000/users',
+    apiUrlPost: 'http://localhost:3000/posts'
 };
