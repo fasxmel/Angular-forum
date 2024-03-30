@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
 import { UserData } from '../types/user';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment.development';
 import { Router } from '@angular/router';
+import { Observable } from 'rxjs';
 
 
 @Injectable({
@@ -15,16 +15,15 @@ private baseUrl = environment.apiUrlUser;
 
 constructor(private http: HttpClient, private router: Router) {}
 
-getAllUsers() {
-  return this.http.get(this.baseUrl)
+loginUser(email: string, password: string) {
+  return this.http.get<UserData[]>(`${this.baseUrl}?email=${email}&password=${password}`)
 }
-
-getUserbyId(id: any) {
-  return this.http.get(this.baseUrl+'/'+id)
-}
-
-registerUser(data: any) {
-  return this.http.post(this.baseUrl, data)
+  
+registerUser(data: UserData) {
+  if (data.password !== data.rePassword) {
+    alert('Passwords do not match');
+} 
+  return this.http.post<UserData>(this.baseUrl, data)
 }
 
 

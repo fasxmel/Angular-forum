@@ -11,7 +11,7 @@
 			<span class="far fa-user"></span>
 			<input formControlName="email" type="email" name="email" id="email" placeholder="Email">
 		</div>
-
+            
 		<!-- <ng-container *ngIf="loginForm.get('email')?.touched">
 			<p class="error" *ngIf="loginForm.get('email')?.errors?.['required']">
 			  Email is required!
@@ -35,5 +35,8 @@
 	</form>
 	<div class="text-center fs-6">
 	 <a routerLink="/register">Don't have an account?</a>
-	</div>   
+
+	
+	</div> 
+	{{loginForm.value | json}}
 </div>

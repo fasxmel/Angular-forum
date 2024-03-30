@@ -21,7 +21,7 @@ export class AddPostComponent {
   addPost() {
     this.addPostService.addPost(this.postForm.value).pipe().subscribe((res) => {
       this.addPosts = res;
-      console.log(res);
+       //TODO: add a success and redirect
     })
   }
 }

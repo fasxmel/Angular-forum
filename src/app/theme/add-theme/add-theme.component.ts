@@ -22,7 +22,7 @@ export class AddThemeComponent {
   addTheme() {
     this.addThemeService.addTheme(this.themeForm.value).subscribe((res) => {
       this.addThemes = res;
-      console.log(res);
+      //TODO: add a success and redirect
     })
   }
 

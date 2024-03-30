@@ -4,9 +4,19 @@
       "id": "Peter",
       "email": "peter@abv.bg",
       "password": "1234",
-      "rePassword": "1234",
-      "role": "admin",
-      "isActive": true
+      "rePassword": "1234"
+    },
+    {
+      "id": "ico",
+      "email": "ico@abv.bg",
+      "password": "1234",
+      "rePassword": "1234"
+    },
+    {
+      "id": "ico ",
+      "email": "ico@abv.bg",
+      "password": "1234",
+      "rePassword": "1234"
     }
   ],
   "themes": [

@@ -1,8 +1,9 @@
 
 import { Component} from '@angular/core';
-import { FormBuilder, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { UserService } from '../user.service';
+import { UserData } from 'src/app/types/user';
 
 
 @Component({
@@ -12,30 +13,32 @@ import { UserService } from '../user.service';
 })
 export class LoginComponent {
 
-userData: any;
 constructor(private fb: FormBuilder, private userService: UserService, private router: Router) { }
 
-loginForm = this.fb.group({
-  email: this.fb.control('', Validators.required),
-  password: this.fb.control('', Validators.required)
+loginForm: FormGroup = this.fb.group({
+  email: ['', Validators.required],
+  password: ['', Validators.required]
 });
 
 login() {
-  if (this.loginForm.valid) {
-       this.userService.getUserbyId(this.loginForm.value.email).subscribe((res) => {
-
-        this.userData = res;
-        console.log(this.userData);
-    })
-      
+const { email, password } = this.loginForm.value;
+if (this.loginForm.valid) {
+  this.userService.loginUser(email, password).subscribe((res) => {
+    if (res.length > 0 && res[0].email === email && res[0].password === password) {
+      alert('Login successful');
+      this.router.navigate(['/']);
     } else {
-    alert('Please enter valid data!');
-  }
+      alert('Wrong email or password'); 
+    }
+  })
+} else {
+  alert('Please enter valid data!');
+}
+
+} 
     
 }
-      
-    
-} 
+
 
       
 

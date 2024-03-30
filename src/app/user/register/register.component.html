@@ -9,49 +9,18 @@
 
 		<div class="form-field d-flex align-items-center">
 			<span class="far fa-user"></span>
-			<input formControlName="id" type="text" name="username" id="username" placeholder="username">
+			<input formControlName="id" type="text" name="id" id="id" placeholder="username">
 		</div>
-
-		<ng-container *ngIf="registerForm.get('username')?.touched">
-			<p class="error" *ngIf="registerForm.get('username')?.errors?.['required']">
-			  Username is required!
-			</p>
-	
-			<p class="error" *ngIf="registerForm.get('username')?.errors?.['minlength']">
-			  Username must be at least 5 characters!
-			</p>
-		</ng-container>
-
 
 		<div class="form-field d-flex align-items-center">
 			<span class="far fa-user"></span>
 			<input  formControlName="email" type="email" name="email" id="email" placeholder="Email">
 		</div>
 
-		<ng-container *ngIf="registerForm.get('email')?.touched">
-			<p class="error" *ngIf="registerForm.get('email')?.errors?.['required']">
-			  Email is required!
-			</p>
-			<p class="error" *ngIf="registerForm.get('email')?.errors?.['emailValidator']">
-			  Email is not valid!
-			</p>
-		  </ng-container>
-
 		<div class="form-field d-flex align-items-center">
 			<span class="fas fa-key"></span>
 			<input  formControlName="password" type="password" name="password" id="password" placeholder="Password">
 		</div>
-
-		<ng-container *ngIf="registerForm?.get('password')?.touched">
-			<p
-			  class="error"
-			  *ngIf="registerForm?.errors?.['password'] || 
-			  registerForm?.get('rePassword')?.errors?.['required']"
-			>
-			  Repeat Password does not match password!
-			</p>
-		  </ng-container>
-	
 
 		<div class="form-field d-flex align-items-center">
 			<span class="fas fa-key"></span>
@@ -65,5 +34,7 @@
 	</form>
 	<div class="text-center fs-6">
 	 <a href="/login">Already have an account?</a>
-	</div>   
+	</div> 
+	{{registerForm.value | json}} 
+	
 </div>
