@@ -9,32 +9,51 @@
 
 		<div class="form-field d-flex align-items-center">
 			<span class="far fa-user"></span>
-			<input formControlName="id" type="text" name="id" id="id" placeholder="username">
+			<input formControlName="username" type="text" name="username" id="username" placeholder="username">
 		</div>
+
+		<ng-container *ngIf="registerForm.get('username')?.touched">
+			<p class="error" *ngIf="registerForm.get('username')?.errors?.['required']">
+			  Username is required!
+			</p>
+		</ng-container>
 
 		<div class="form-field d-flex align-items-center">
 			<span class="far fa-user"></span>
 			<input  formControlName="email" type="email" name="email" id="email" placeholder="Email">
 		</div>
 
+		<ng-container *ngIf="registerForm.get('email')?.touched">
+			<p class="error" *ngIf="registerForm.get('email')?.errors?.['required']">
+			  Email is required!
+			</p>
+		</ng-container>
+
 		<div class="form-field d-flex align-items-center">
 			<span class="fas fa-key"></span>
 			<input  formControlName="password" type="password" name="password" id="password" placeholder="Password">
 		</div>
+
+		<ng-container *ngIf="registerForm.get('password')?.touched">
+			<p class="error" *ngIf="registerForm.get('password')?.errors?.['required']">
+			  Password is required!
+			</p>
+		</ng-container>
+
 
 		<div class="form-field d-flex align-items-center">
 			<span class="fas fa-key"></span>
 			<input  formControlName="rePassword" type="password" name="rePassword" id="rePassword" placeholder="Repeat Password">
 		</div>
          
-		
-
-
+		<ng-container *ngIf="registerForm.get('rePassword')?.touched">
+			<p class="error" *ngIf="registerForm.get('rePassword')?.errors?.['required']">
+			  rePassword is required!
+			</p>
+		</ng-container>
 		<button type="submit" class="btn mt-3">Register</button>
 	</form>
 	<div class="text-center fs-6">
 	 <a href="/login">Already have an account?</a>
-	</div> 
-	{{registerForm.value | json}} 
-	
+	</div> 	
 </div>

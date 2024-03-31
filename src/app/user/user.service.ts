@@ -3,7 +3,7 @@ import { UserData } from '../types/user';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment.development';
 import { Router } from '@angular/router';
-import { Observable } from 'rxjs';
+
 
 
 @Injectable({
@@ -20,10 +20,7 @@ loginUser(email: string, password: string) {
 }
   
 registerUser(data: UserData) {
-  if (data.password !== data.rePassword) {
-    alert('Passwords do not match');
-} 
-  return this.http.post<UserData>(this.baseUrl, data)
+return this.http.post<UserData>(this.baseUrl, data)
 }
 
 

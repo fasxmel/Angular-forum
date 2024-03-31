@@ -3,7 +3,7 @@ import { Component} from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { UserService } from '../user.service';
-import { UserData } from 'src/app/types/user';
+
 
 
 @Component({
@@ -22,6 +22,7 @@ loginForm: FormGroup = this.fb.group({
 
 login() {
 const { email, password } = this.loginForm.value;
+
 if (this.loginForm.valid) {
   this.userService.loginUser(email, password).subscribe((res) => {
     if (res.length > 0 && res[0].email === email && res[0].password === password) {
