@@ -10,15 +10,13 @@ import { ThemeModule } from './theme/theme.module';
 import { ErrorComponent } from './error/error.component';
 
 import { AppComponent } from './app.component';
-import { LogoutComponent } from './logout/logout.component';
+
 
 
 @NgModule({
   declarations: [
     AppComponent,
     ErrorComponent,
-    LogoutComponent,
-   
   ],
   imports: [
     BrowserModule,

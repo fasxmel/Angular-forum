@@ -1,17 +1,18 @@
 {
   "users": [
     {
-      "id": "Peter",
-      "email": "peter@abv.bg",
+      "id": "bb1a",
+      "username": "test",
+      "email": "test@test.bg",
       "password": "1234",
       "rePassword": "1234"
     },
     {
-      "id": "13c7",
-      "username": "test  ",
-      "email": "test@test.bg",
-      "password": "1234",
-      "rePassword": "1234"
+      "id": "322f",
+      "username": "ico ",
+      "email": "ico@abv.bg",
+      "password": "123",
+      "rePassword": "123"
     }
   ],
   "themes": [
