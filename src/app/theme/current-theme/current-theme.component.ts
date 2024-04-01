@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder } from '@angular/forms';
+import { ThemeService } from '../theme.service';
+import { Theme } from 'src/app/types/theme';
 
 @Component({
   selector: 'app-current-theme',
@@ -6,11 +9,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./current-theme.component.css']
 })
 export class CurrentThemeComponent implements OnInit {
-   
-  constructor() { }
+  allThemes: Theme[] = [];
+  constructor(private fb: FormBuilder, private themeService: ThemeService) { }
 
   ngOnInit(): void {
-    
-    
+    this.getThemes() 
   }
+  getThemes() {
+    this.themeService.getAllThemes().subscribe((res) => {
+      this.allThemes = res;
+    })
+  }
+
 }

@@ -20,7 +20,8 @@
                       </div>
     
                       <div class="widget-49-meeting-action">
-                          <a href="#" class="btn btn-sm btn-flash-border-primary">View All</a>
+                          <a routerLink="/add-post" class="addPost">Add Post</a>
+                          <a *ngIf="isLoggedIn"(click)="deletePost(post.id)" routerLink="/home" class="delete">Delete Post</a>
                       </div>
                   </div>
               </div>

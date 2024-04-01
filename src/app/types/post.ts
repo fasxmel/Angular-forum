@@ -1,8 +1,11 @@
-import { Theme } from './theme';
+import { Theme } from "./theme";
+import { UserData } from "./user";
+
 export interface Post {
       id: string;
       postName: string;
       postText: string;
-      themeId: string;
+      themes: Theme[];
+      users: UserData[];
 }   
       

@@ -19,8 +19,9 @@
                           </div> 
                       </div>
                       
-                      <div class="widget-49-meeting-action">
-                          <a href="#" class="btn btn-sm btn-flash-border-primary">View All</a>
+                      <div  class="widget-49-meeting-action">
+                          <a  routerLink="/add-theme" class="addTheme">Add Theme</a>
+                          <a *ngIf="isLoggedIn" (click)="deleteTheme(theme.id)" routerLink="/home" class="delete">Delete Theme</a>
                       </div>
                   </div>
               </div>

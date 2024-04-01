@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Theme } from '../../types/theme';
 import { ThemeService } from '../theme.service';
-import { FormBuilder } from '@angular/forms';
+import { UserService } from 'src/app/user/user.service';
 @Component({
   selector: 'app-themes-list',
   templateUrl: './themes-list.component.html',
@@ -9,7 +9,16 @@ import { FormBuilder } from '@angular/forms';
 })
 export class ThemesListComponent implements OnInit {
   allThemes: Theme[] = [];
-  constructor(private fb: FormBuilder, private themeService: ThemeService) { }
+  constructor(
+    private themeService: ThemeService,
+    private userService: UserService
+    ) { }
+
+
+  get isLoggedIn(): boolean {
+    return this.userService.isLogged;
+  }
+
 
   ngOnInit(): void {
     this.getThemes();
@@ -18,7 +27,12 @@ export class ThemesListComponent implements OnInit {
   getThemes() {
     this.themeService.getAllThemes().subscribe((res) => {
       this.allThemes = res;
-      console.log(this.allThemes);
+    })
+  }
+
+  deleteTheme(id: string) {
+    this.themeService.deleteTheme(id).subscribe((res) => {
+      this.getThemes();
     })
   }
 

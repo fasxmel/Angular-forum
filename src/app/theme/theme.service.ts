@@ -1,6 +1,5 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { map } from 'rxjs';
 import { environment } from 'src/environments/environment.development';
 import { Theme } from '../types/theme';
 import { Post } from '../types/post';
@@ -15,7 +14,7 @@ export class ThemeService {
 
   constructor(private http: HttpClient) { }
 
-  //THEMES CRUD
+  //Themes
   getAllThemes() {
     return this.http.get<Theme[]>(this.baseUrlTheme)
   }
@@ -23,11 +22,9 @@ export class ThemeService {
   getOneTheme(id: string) {
     return this.http.get<Theme>(`${this.baseUrlTheme}/${id}`)
   }
- //TODO: fix the addTheme method
-  addTheme(data: any){
-    return this.http.post(this.baseUrlTheme, data).pipe(map((res: any) => {
-      return res;
-    }));
+
+  addTheme(themeName: string, themeText: string) {
+    return this.http.post<Theme>(this.baseUrlTheme, {themeName, themeText})   
   }
 
   updateTheme(id: string, data: any) {
@@ -37,25 +34,21 @@ export class ThemeService {
   deleteTheme(id: string) {
     return this.http.delete<Theme>(`${this.baseUrlTheme}/${id}`);
   }
-
-
-
-  //POSTS CRUD
+   //Posts
   getAllPosts() {
     return this.http.get<Post[]>(this.baseUrlPost);
   }
-  getOnePost(id: string) {
-    return this.http.get<Post>(`${this.baseUrlPost}/${id}`);
+
+  addPost(postName: string, postText: string) {
+    return this.http.post<Post>(this.baseUrlPost, {postName, postText})   
   }
-  //TODO: fix the addPost method
-  addPost(data: any) {
-    return this.http.post(this.baseUrlPost, data).pipe(map((res: any) => {
-      return res;
-    }));
+
+  getOnePost(id: string) {
+    return this.http.get<Post>(`${this.baseUrlPost}/${id}`)
   }
 
   updatePost(id: string, data: any) {
-    return this.http.put<Post>(`${this.baseUrlPost}/${id}`, data)
+    return this.http.put<Post>(`${this.baseUrlPost}/${id}`, data);
   }
 
   deletePost(id: string) {

@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
-import { FormBuilder } from '@angular/forms';
 import { ThemeService } from '../theme.service';
-import { Post } from 'src/app/types/post';
+import { Router } from '@angular/router';
+import { NgForm } from '@angular/forms';
+
 
 @Component({
   selector: 'app-add-post',
@@ -9,19 +10,18 @@ import { Post } from 'src/app/types/post';
   styleUrls: ['./add-post.component.css']
 })
 export class AddPostComponent {
-  addPosts: Post[] = []
+  
+  constructor(private addPostService: ThemeService, private router: Router) { }
    
-  constructor(private fb: FormBuilder, private addPostService: ThemeService) { }
-   
-  postForm = this.fb.group({
-    postName: this.fb.control(''),
-    postText: this.fb.control('')
-  });
+  addPost(postForm: NgForm) {
+    if (postForm.invalid) {
+      return;
+    }
 
-  addPost() {
-    this.addPostService.addPost(this.postForm.value).pipe().subscribe((res) => {
-      this.addPosts = res;
-       //TODO: add a success and redirect
-    })
+    const {postName, postText} = postForm.value
+    this.addPostService.addPost(postName, postText).subscribe((res) => {
+    this.router.navigate(['/themes'])
+    });
+   
   }
 }

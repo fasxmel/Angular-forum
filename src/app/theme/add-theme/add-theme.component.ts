@@ -1,7 +1,8 @@
 import { Component} from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, NgForm } from '@angular/forms';
 import { ThemeService } from '../theme.service';
 import { Theme } from 'src/app/types/theme';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-add-theme',
@@ -9,22 +10,23 @@ import { Theme } from 'src/app/types/theme';
   styleUrls: ['./add-theme.component.css']
 })
 export class AddThemeComponent {
-  addThemes: Theme[] = []
-  constructor(private fb: FormBuilder, private addThemeService: ThemeService) { }
+  
+  constructor(private addThemeService: ThemeService, private router: Router) { }
 
-
-  themeForm = this.fb.group({
-    themeName: this.fb.control(''),
-    themeText: this.fb.control('')
-  });
 
   
-  addTheme() {
-    this.addThemeService.addTheme(this.themeForm.value).subscribe((res) => {
-      this.addThemes = res;
-      //TODO: add a success and redirect
-    })
-  }
 
+  
+  addTheme(themeForm: NgForm) {
+    if (themeForm.invalid) {
+      return;
+    }
+
+    const {themeName, themeText} = themeForm.value
+    this.addThemeService.addTheme(themeName, themeText).subscribe((res) => {
+    this.router.navigate(['/themes'])
+    });
+    
+  }
 
 }

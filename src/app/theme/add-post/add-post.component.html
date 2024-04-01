@@ -1,13 +1,13 @@
 <section  class="articles">
   <h1>Add Post</h1>
   <article>
-    <form [formGroup]="postForm" (ngSubmit)="addPost()">
+    <form #postForm="ngForm" (ngSubmit)="addPost(postForm)">
     <div class="article-wrapper">
       <div class="article-body">
         <div class="textArea">
         <label for="themeName"></label>
-        <input type="text" formControlName="postName" name="postName"  id="themeName" placeholder="Post Name">
-        <textarea type="text" name="themeText" formControlName="postText"  id="themeText" placeholder="" cols="75" rows="10"></textarea>
+        <input type="text" ngModel #inputThemeName="ngModel" name="postName"  id="themeName" placeholder="Theme Name">
+        <textarea type="text" name="postText" ngModel #inputThemeText="ngModel"  id="postText" placeholder="" cols="75" rows="10"></textarea>
        
         </div>
         <div class="buttouns">

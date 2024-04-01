@@ -1,13 +1,13 @@
 <section  class="articles">
   <h1>Add Theme</h1>
   <article>
-    <form [formGroup]="themeForm" (ngSubmit)="addTheme()">
+    <form #themeForm="ngForm" (ngSubmit)="addTheme(themeForm)">
     <div class="article-wrapper">
       <div class="article-body">
         <div class="textArea">
         <label for="themeName"></label>
-        <input type="text" formControlName="themeName" name="themeName"  id="themeName" placeholder="Theme Name">
-        <textarea  type="text" name="themeText" formControlName="themeText"  id="themeText" placeholder="What's on your mind?" cols="75" rows="10"></textarea>
+        <input type="text" ngModel #inputThemeName="ngModel" name="themeName"  id="themeName" placeholder="Theme Name">
+        <textarea  type="text" name="themeText" ngModel #inputThemeText="ngModel"  id="themeText" placeholder="What's on your mind?" cols="75" rows="10"></textarea>
        
         </div>
         <div class="buttouns">

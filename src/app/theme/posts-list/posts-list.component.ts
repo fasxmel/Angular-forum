@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Post } from '../../types/post';
 import { ThemeService } from '../theme.service';
-import { FormBuilder } from '@angular/forms';
+import { UserService } from 'src/app/user/user.service';
 
 @Component({
   selector: 'app-posts-list',
@@ -10,7 +10,14 @@ import { FormBuilder } from '@angular/forms';
 })
 export class PostsListComponent implements OnInit {
   allPosts: Post[] = [];
-  constructor(private fb: FormBuilder, private postService: ThemeService) {}
+  constructor(
+    private postService: ThemeService,
+    private userService: UserService
+    ) {}
+
+    get isLoggedIn(): boolean {
+      return this.userService.isLogged;
+    }
 
 
   ngOnInit(): void {
@@ -20,9 +27,15 @@ export class PostsListComponent implements OnInit {
   getAllPosts(){
     return this.postService.getAllPosts().subscribe((res) => {
       this.allPosts = res;
-      console.log(this.allPosts);
+     
     });
   }
 
+
+  deletePost(id: string) {
+    this.postService.deletePost(id).subscribe((res) => {
+      this.getAllPosts();
+    })
+  }
 
 }
