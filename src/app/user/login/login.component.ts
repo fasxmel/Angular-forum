@@ -26,7 +26,6 @@ const { email, password } = this.loginForm.value;
 if (this.loginForm.valid) {
   this.userService.loginUser(email, password).subscribe((res) => {
     if (res.length > 0 && res[0].email === email && res[0].password === password) {
-      alert('Login successful');
       this.router.navigate(['/']);
     } else {
       alert('Wrong email or password'); 

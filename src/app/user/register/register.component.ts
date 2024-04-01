@@ -34,7 +34,6 @@ constructor(private fb: FormBuilder, private userService: UserService, private r
     
     if (this.registerForm.valid) {
       this.userService.registerUser(this.registerForm.value).subscribe((res) => {
-      alert('Register successful');
       this.router.navigate(['/home']);
       })
     } else {
