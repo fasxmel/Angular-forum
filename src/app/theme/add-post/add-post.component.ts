@@ -20,7 +20,7 @@ export class AddPostComponent {
 
     const {postName, postText} = postForm.value
     this.addPostService.addPost(postName, postText).subscribe((res) => {
-    this.router.navigate(['/themes'])
+    this.router.navigate(['/'])
     });
    
   }
