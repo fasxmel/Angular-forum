@@ -24,7 +24,7 @@ export class AddThemeComponent {
 
     const {themeName, themeText} = themeForm.value
     this.addThemeService.addTheme(themeName, themeText).subscribe((res) => {
-    this.router.navigate(['/themes'])
+    this.router.navigate(['/'])
     });
     
   }
